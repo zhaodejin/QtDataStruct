@@ -11,7 +11,7 @@ find_package(Qt5 COMPONENTS
         Core
         REQUIRED)
 
-add_executable(Workspace main.cpp)
+add_executable(Workspace src/main.cpp)
 target_link_libraries(Workspace
         Qt5::Core
         )
