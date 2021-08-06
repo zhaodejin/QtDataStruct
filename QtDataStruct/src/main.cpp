@@ -18,14 +18,18 @@ float Income = (QDateTime::currentSecsSinceEpoch()-1628154370)*0.0031;
 Widget::Widget(QWidget *parent):
         QWidget(parent)
 {
-
+//定义一个窗口，所有实现基于此窗口
     this->setFixedSize(300,280);
+//时间标签
     QLabel* labelTime = new QLabel(QString("时间："),this);
     labelTime->setGeometry(50,10,50,30);
+//当前时间线性编辑框
     QLineEdit* LineEditTime = new QLineEdit(this);
+//当前时间定时器，间隔为一秒
     QTimer *currentTimer = new QTimer(this);
     currentTimer->setInterval(1000);
     currentTimer->start();
+//使用定时器更新显示
     connect(currentTimer,&QTimer::timeout,[=](){
         QDateTime * datetime = new QDateTime();
         LineEditTime->setText(datetime->currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));});
@@ -36,6 +40,8 @@ Widget::Widget(QWidget *parent):
     QLabel* labelIncome = new QLabel(QString("收入："),this);
     labelIncome->setGeometry(50,50,50,30);
     QLineEdit* LineEditIncome = new QLineEdit(this);
+//定义qlcdnumber显示倒计时。
+//定义收入，使用定时器更新倒计时以及收入还有时间戳。
     QLCDNumber* qlcdNumber = new QLCDNumber(this);
     qlcdNumber->setAutoFillBackground(true);
     QPalette pal = qlcdNumber->palette();
