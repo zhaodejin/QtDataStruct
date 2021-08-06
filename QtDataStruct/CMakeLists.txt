@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(QtDataStruct)
+project(MakeMoney)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
